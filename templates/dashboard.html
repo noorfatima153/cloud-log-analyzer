@@ -1,18 +1,33 @@
-<h2>Log Analysis Dashboard</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
 
-<table border="1">
-    <tr>
-        <th>Metric</th>
-        <th>Count</th>
-    </tr>
+<div class="container">
+    <h1>Analytics Dashboard</h1>
 
-    {% for key, value in data.items() %}
-    <tr>
-        <td>{{ key }}</td>
-        <td>{{ value }}</td>
-    </tr>
-    {% endfor %}
-</table>
+    <div class="card">
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Count</th>
+            </tr>
 
-<br>
-<a href="/upload">Back</a>
+            {% for key, value in data.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="/upload">Upload Another</a>
+    </div>
+</div>
+
+</body>
+</html>

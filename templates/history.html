@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Analysis History</title>
+		<style>
+			table { border-collapse: collapse; width: 100%; }
+			th, td { border: 1px solid #ddd; padding: 8px; }
+			th { background: #f4f4f4; }
+		</style>
+	</head>
+	<body>
+		<h1>Analysis History</h1>
+		<p><a href="/upload">Upload more files</a> | <a href="/logout">Logout</a></p>
+
+		{% if rows and rows|length > 0 %}
+			<table>
+				<thead>
+					<tr>
+						<th>Filename</th>
+						<th>Analyzed At</th>
+						<th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for r in rows %}
+						<tr>
+							<td>{{ r[0] }}</td>
+							<td>{{ r[1] }}</td>
+							<td><pre style="white-space:pre-wrap">{{ r[2] }}</pre></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p>No history found.</p>
+		{% endif %}
+	</body>
+</html>

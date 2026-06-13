@@ -1,8 +1,7 @@
 from collections import defaultdict
 from multiprocessing import Pool
 
-
-# MAP function
+# ---------------- MAP ----------------
 def mapper(chunk):
     results = []
 
@@ -19,29 +18,25 @@ def mapper(chunk):
 
     return results
 
-
-# SHUFFLE
-def shuffle(mapped):
+# ---------------- SHUFFLE ----------------
+def shuffle(mapped_data):
     grouped = defaultdict(list)
 
-    for sublist in mapped:
-        for key, value in sublist:
+    for item in mapped_data:
+        for key, value in item:
             grouped[key].append(value)
 
     return grouped
 
-
-# REDUCE
+# ---------------- REDUCE ----------------
 def reducer(grouped):
     return {k: sum(v) for k, v in grouped.items()}
 
+# ---------------- SPLIT ----------------
+def split_data(lines, chunk_size=10):
+    return [lines[i:i+chunk_size] for i in range(0, len(lines), chunk_size)]
 
-# SPLIT
-def split_data(lines, size=10):
-    return [lines[i:i+size] for i in range(0, len(lines), size)]
-
-
-# MAIN PIPELINE (PARALLEL MAPREDUCE)
+# ---------------- MAPREDUCE ----------------
 def run_mapreduce(lines):
     chunks = split_data(lines)
 
