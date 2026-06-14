@@ -70,7 +70,7 @@ body {
   box-shadow: 0 8px 32px rgba(123,51,88,0.08);
 }
 
-/* ─── File Upload ─── */
+/* ─── File Input ─── */
 input[type="file"] {
   display: block;
   width: 100%;
@@ -82,7 +82,7 @@ input[type="file"] {
   font-size: 14px;
   cursor: pointer;
   text-align: center;
-  transition: 0.2s;
+  transition: border-color 0.2s, background 0.2s;
   margin-bottom: 1.5rem;
 }
 
@@ -91,7 +91,7 @@ input[type="file"]:hover {
   background: var(--rose-hover);
 }
 
-/* ─── Buttons (GLOBAL FIX) ─── */
+/* ─── BUTTONS (ONLY FIXED PART) ─── */
 button {
   display: inline-block;
   padding: 12px 28px;
@@ -99,6 +99,7 @@ button {
   background: var(--gradient-btn);
   border: none;
   color: #fff;
+  font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -185,10 +186,7 @@ tr:hover td {
   padding: 1rem;
 }
 
-/* ───────────────────────────── */
-/* 🔥 AUTH LANDING UI (NEW FIX) */
-/* ───────────────────────────── */
-
+/* ─── AUTH LANDING (UNCHANGED STRUCTURE) ─── */
 .auth-landing {
   text-align: center;
 }
@@ -227,13 +225,7 @@ tr:hover td {
   color: var(--muted-text);
 }
 
-/* override only auth buttons slightly */
-.auth-box button {
-  width: 100%;
-}
-
 /* ─── Responsive ─── */
 @media (max-width: 600px) {
   .card { padding: 1.5rem; }
-  td pre { max-width: 200px; }
 }
