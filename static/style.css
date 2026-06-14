@@ -275,3 +275,43 @@ input[type="password"] {
     outline: none;
     font-family: var(--font-sans);
 }
+.auth-landing {
+    text-align: center;
+}
+
+.auth-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.auth-box {
+    background: var(--rose-surface);
+    border: 1px solid var(--rose-border);
+    border-radius: 16px;
+    padding: 25px;
+    width: 240px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.auth-box:hover {
+    transform: translateY(-5px);
+}
+
+.auth-box h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.auth-box p {
+    font-size: 13px;
+    margin-bottom: 15px;
+    color: var(--muted-text);
+}
+
+.auth-box button {
+    width: 100%;
+}
