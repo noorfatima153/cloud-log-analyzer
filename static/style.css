@@ -67,12 +67,7 @@ body {
   box-shadow: 0 18px 35px rgba(0,0,0,0.12);
 }
 
-/* REMOVE TEXT (as you wanted clean UI) */
-.auth-box h2,
-.auth-box h3,
-.auth-box p {
-  display: none;
-}
+/* Auth box text is shown — see overrides below */
 
 /* BUTTON */
 button {
@@ -105,4 +100,72 @@ input {
   margin: 8px 0;
   border-radius: 10px;
   border: 1px solid #ddd;
+}
+
+/* AUTH HEADINGS & SWITCH LINK */
+.auth-box h2,
+.auth-box h3 {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--plum-text);
+  margin-bottom: 16px;
+}
+
+.auth-box p {
+  display: block;
+}
+
+.auth-switch {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted-text);
+}
+
+.auth-switch a {
+  color: var(--rose-mid);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* ERROR MESSAGE */
+.error-message {
+  background: #fde8ec;
+  color: #a3506a;
+  border: 1px solid #e0b4c8;
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* RESULT BOX (history page) */
+.result-box {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: left;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+/* PRE TAG OVERFLOW */
+pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* METRIC VALUE OVERFLOW */
+.metric-value {
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
 }

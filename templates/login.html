@@ -10,9 +10,6 @@
 <div class="container">
 
     <div class="card">
-        {% if error %}
-   <div class="error-message">{{ error }}</div>
-    {% endif %}
 
         {% if error %}
         <div class="error-message">{{ error }}</div>
@@ -23,6 +20,8 @@
             <!-- SIGN IN -->
             <div class="auth-box">
 
+                <h2>Sign In to your account</h2>
+
                 <form method="POST" action="/login">
 
                     <input type="text" name="username" placeholder="Username" required>
@@ -32,10 +31,14 @@
 
                 </form>
 
+                <p class="auth-switch">Don't have an account? <a href="#register">Sign up here</a></p>
+
             </div>
 
             <!-- REGISTER -->
-            <div class="auth-box">
+            <div class="auth-box" id="register">
+
+                <h2>Create Account</h2>
 
                 <form method="POST" action="/register">
 
