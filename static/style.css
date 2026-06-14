@@ -26,13 +26,13 @@ body {
   background: #f5e8ef;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 3rem 1.5rem;
   color: var(--plum-text);
 }
 
-/* ─── Page Container ─── */
+/* ─── Container ─── */
 .container {
   width: 100%;
   max-width: 860px;
@@ -41,7 +41,7 @@ body {
   gap: 1.5rem;
 }
 
-/* ─── Page Heading ─── */
+/* ─── Headings ─── */
 .container > h1,
 .container > h2 {
   font-family: var(--font-serif);
@@ -70,7 +70,7 @@ body {
   box-shadow: 0 8px 32px rgba(123,51,88,0.08);
 }
 
-/* ─── File Input ─── */
+/* ─── File Upload ─── */
 input[type="file"] {
   display: block;
   width: 100%;
@@ -79,38 +79,43 @@ input[type="file"] {
   border-radius: 12px;
   background: var(--rose-surface);
   color: var(--muted-text);
-  font-family: var(--font-sans);
   font-size: 14px;
   cursor: pointer;
   text-align: center;
-  transition: border-color 0.2s, background 0.2s;
+  transition: 0.2s;
   margin-bottom: 1.5rem;
 }
+
 input[type="file"]:hover {
   border-color: var(--rose-light);
   background: var(--rose-hover);
 }
 
-/* ─── Buttons ─── */
-button[type="submit"],
-button[type="button"] {
+/* ─── Buttons (GLOBAL FIX) ─── */
+button {
   display: inline-block;
   padding: 12px 28px;
   border-radius: 12px;
   background: var(--gradient-btn);
   border: none;
   color: #fff;
-  font-family: var(--font-sans);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   letter-spacing: 0.3px;
-  transition: opacity 0.2s, transform 0.1s;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 15px rgba(163,80,106,0.25);
 }
-button[type="submit"]:hover,
-button[type="button"]:hover { opacity: 0.9; transform: translateY(-1px); }
-button[type="submit"]:active,
-button[type="button"]:active { transform: scale(0.99); }
+
+button:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(163,80,106,0.35);
+}
+
+button:active {
+  transform: scale(0.98);
+}
 
 /* ─── Links ─── */
 a {
@@ -118,14 +123,11 @@ a {
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s;
 }
-a:hover { color: var(--rose-dark); text-decoration: underline; }
 
-.card a {
-  display: inline-block;
-  margin-top: 1rem;
-  margin-right: 1.2rem;
+a:hover {
+  color: var(--rose-dark);
+  text-decoration: underline;
 }
 
 /* ─── Tables ─── */
@@ -146,172 +148,92 @@ th {
   text-align: left;
   border-bottom: 1px solid var(--rose-border);
 }
-th:first-child { border-radius: 10px 0 0 0; }
-th:last-child  { border-radius: 0 10px 0 0; }
 
 td {
   padding: 13px 16px;
   color: var(--plum-text);
   border-bottom: 0.5px solid var(--rose-border);
-  vertical-align: top;
 }
 
-tr:last-child td { border-bottom: none; }
-
-tr:hover td { background: var(--rose-hover); }
-
-/* pre inside table (history result) */
-td pre {
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  color: var(--muted-text);
-  background: var(--rose-surface);
-  border: 0.5px solid var(--rose-border);
-  border-radius: 8px;
-  padding: 10px 14px;
-  white-space: pre-wrap;
-  word-break: break-word;
-  max-width: 420px;
-  max-height: 160px;
-  overflow-y: auto;
+tr:hover td {
+  background: var(--rose-hover);
 }
 
-/* ─── Empty State ─── */
-p {
-  color: var(--muted-text);
-  font-size: 14px;
-  margin-top: 0.5rem;
-}
-
-/* ─── Nav Bar (top strip) ─── */
+/* ─── Navbar ─── */
 .navbar {
   width: 100%;
   max-width: 860px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
   background: var(--rose-pale);
   border: 0.5px solid var(--rose-border);
   border-radius: 14px;
-  margin-bottom: 0.5rem;
 }
-.navbar .brand {
-  font-family: var(--font-serif);
-  font-size: 16px;
-  color: var(--plum-text);
-}
-.navbar .nav-links { display: flex; gap: 1.2rem; }
-.navbar .nav-links a { margin: 0; font-size: 13px; }
 
-/* ─── Metric Cards (dashboard) ─── */
+/* ─── Metrics ─── */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
-  margin-bottom: 1.5rem;
 }
+
 .metric-card {
   background: var(--rose-surface);
   border: 0.5px solid var(--rose-border);
   border-radius: 12px;
-  padding: 1rem 1.2rem;
+  padding: 1rem;
 }
-.metric-card .metric-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--rose-mid);
-  margin-bottom: 6px;
+
+/* ───────────────────────────── */
+/* 🔥 AUTH LANDING UI (NEW FIX) */
+/* ───────────────────────────── */
+
+.auth-landing {
+  text-align: center;
 }
-.metric-card .metric-value {
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--plum-text);
+
+.auth-options {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.auth-box {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--rose-border);
+  border-radius: 18px;
+  padding: 25px;
+  width: 260px;
+  transition: 0.3s ease;
+}
+
+.auth-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.auth-box h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.auth-box p {
+  font-size: 13px;
+  margin-bottom: 15px;
+  color: var(--muted-text);
+}
+
+/* override only auth buttons slightly */
+.auth-box button {
+  width: 100%;
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 600px) {
   .card { padding: 1.5rem; }
   td pre { max-width: 200px; }
-}
-.auth-card {
-    max-width: 420px;
-    margin: auto;
-    text-align: center;
-}
-
-.auth-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 10px;
-}
-
-.auth-tabs .tab {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background: var(--rose-surface);
-    cursor: pointer;
-    border-radius: 10px;
-    font-weight: 500;
-    color: var(--plum-text);
-}
-
-.auth-tabs .tab.active {
-    background: var(--gradient-btn);
-    color: white;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 10px;
-    border: 1px solid var(--rose-border);
-    outline: none;
-    font-family: var(--font-sans);
-}
-.auth-landing {
-    text-align: center;
-}
-
-.auth-options {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.auth-box {
-    background: var(--rose-surface);
-    border: 1px solid var(--rose-border);
-    border-radius: 16px;
-    padding: 25px;
-    width: 240px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
-}
-
-.auth-box:hover {
-    transform: translateY(-5px);
-}
-
-.auth-box h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.auth-box p {
-    font-size: 13px;
-    margin-bottom: 15px;
-    color: var(--muted-text);
-}
-
-.auth-box button {
-    width: 100%;
 }
