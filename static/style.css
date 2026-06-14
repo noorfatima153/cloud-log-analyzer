@@ -46,14 +46,15 @@ body {
 /* AUTH LAYOUT */
 .auth-options {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 40px;
-  flex-wrap: wrap;
 }
 
 /* BOX */
 .auth-box {
-  width: 260px;
+  width: 100%;
+  max-width: 360px;
   background: rgba(255,255,255,0.75);
   border: 1px solid var(--rose-border);
   border-radius: 18px;
