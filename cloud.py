@@ -68,9 +68,12 @@ def register():
         success = create_user(username, password)
 
         if success:
+            user = User()
+            user.id = username
+            login_user(user)
             return redirect("/upload")
 
-        return render_template("login.html", error="User already exists")
+        return render_template("login.html", error="Username already exists.")
 
     except Exception as e:
         print("REGISTER ERROR:", e)
