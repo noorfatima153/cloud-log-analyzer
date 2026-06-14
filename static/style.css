@@ -1,317 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@500&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css');
 
-/* ─── Variables ─── */
 :root {
-  --rose-dark:    #7b3358;
-  --rose-mid:     #a3506a;
-  --rose-light:   #c9748e;
-  --rose-pale:    #fdf6f9;
-  --rose-surface: #f9eef4;
-  --rose-border:  #e0b4c8;
-  --rose-hover:   #fef0f5;
-  --plum-text:    #3d1f2d;
-  --muted-text:   #8c6070;
-  --hint-text:    #c9a8b5;
+  --rose-dark: #7b3358;
+  --rose-mid: #a3506a;
+  --rose-light: #c9748e;
+  --rose-pale: #fdf6f9;
+  --rose-border: #e0b4c8;
+  --plum-text: #3d1f2d;
+  --muted-text: #8c6070;
   --gradient-btn: linear-gradient(135deg, #c9748e, #a3506a);
-  --font-sans:    'DM Sans', sans-serif;
-  --font-serif:   'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
 }
 
-/* ─── Reset ─── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: var(--font-sans);
   background: #f5e8ef;
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 3rem 1.5rem;
-  color: var(--plum-text);
+  align-items: center;
 }
 
-/* ─── Page Container ─── */
+/* MAIN CARD */
 .container {
   width: 100%;
-  max-width: 860px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  max-width: 900px;
 }
 
-/* ─── Page Heading ─── */
-.container > h1,
-.container > h2 {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  color: var(--plum-text);
-  font-weight: 500;
-}
-
-.container > h1::before {
-  content: '';
-  display: inline-block;
-  width: 6px; height: 22px;
-  background: var(--gradient-btn);
-  border-radius: 4px;
-  margin-right: 12px;
-  vertical-align: middle;
-  position: relative; top: -2px;
-}
-
-/* ─── Card ─── */
 .card {
   background: var(--rose-pale);
-  border: 0.5px solid var(--rose-border);
-  border-radius: 18px;
-  padding: 2rem 2.5rem;
-  box-shadow: 0 8px 32px rgba(123,51,88,0.08);
-}
-
-/* ─── File Input ─── */
-input[type="file"] {
-  display: block;
-  width: 100%;
-  padding: 2rem;
-  border: 2px dashed var(--rose-border);
-  border-radius: 12px;
-  background: var(--rose-surface);
-  color: var(--muted-text);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  cursor: pointer;
+  padding: 60px 40px;
+  border-radius: 22px;
   text-align: center;
-  transition: border-color 0.2s, background 0.2s;
-  margin-bottom: 1.5rem;
-}
-input[type="file"]:hover {
-  border-color: var(--rose-light);
-  background: var(--rose-hover);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
-/* ─── Buttons ─── */
-button[type="submit"],
-button[type="button"] {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 12px;
-  background: var(--gradient-btn);
-  border: none;
-  color: #fff;
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  letter-spacing: 0.3px;
-  transition: opacity 0.2s, transform 0.1s;
-}
-button[type="submit"]:hover,
-button[type="button"]:hover { opacity: 0.9; transform: translateY(-1px); }
-button[type="submit"]:active,
-button[type="button"]:active { transform: scale(0.99); }
-
-/* ─── Links ─── */
-a {
-  color: var(--rose-mid);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-a:hover { color: var(--rose-dark); text-decoration: underline; }
-
-.card a {
-  display: inline-block;
-  margin-top: 1rem;
-  margin-right: 1.2rem;
-}
-
-/* ─── Tables ─── */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-th {
-  background: var(--rose-surface);
-  color: var(--rose-dark);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid var(--rose-border);
-}
-th:first-child { border-radius: 10px 0 0 0; }
-th:last-child  { border-radius: 0 10px 0 0; }
-
-td {
-  padding: 13px 16px;
-  color: var(--plum-text);
-  border-bottom: 0.5px solid var(--rose-border);
-  vertical-align: top;
-}
-
-tr:last-child td { border-bottom: none; }
-
-tr:hover td { background: var(--rose-hover); }
-
-/* pre inside table (history result) */
-td pre {
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  color: var(--muted-text);
-  background: var(--rose-surface);
-  border: 0.5px solid var(--rose-border);
-  border-radius: 8px;
-  padding: 10px 14px;
-  white-space: pre-wrap;
-  word-break: break-word;
-  max-width: 420px;
-  max-height: 160px;
-  overflow-y: auto;
-}
-
-/* ─── Empty State ─── */
-p {
-  color: var(--muted-text);
-  font-size: 14px;
-  margin-top: 0.5rem;
-}
-
-/* ─── Nav Bar (top strip) ─── */
-.navbar {
-  width: 100%;
-  max-width: 860px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1.5rem;
-  background: var(--rose-pale);
-  border: 0.5px solid var(--rose-border);
-  border-radius: 14px;
-  margin-bottom: 0.5rem;
-}
-.navbar .brand {
-  font-family: var(--font-serif);
-  font-size: 16px;
-  color: var(--plum-text);
-}
-.navbar .nav-links { display: flex; gap: 1.2rem; }
-.navbar .nav-links a { margin: 0; font-size: 13px; }
-
-/* ─── Metric Cards (dashboard) ─── */
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  margin-bottom: 1.5rem;
-}
-.metric-card {
-  background: var(--rose-surface);
-  border: 0.5px solid var(--rose-border);
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-}
-.metric-card .metric-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--rose-mid);
-  margin-bottom: 6px;
-}
-.metric-card .metric-value {
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--plum-text);
-}
-
-/* ─── Responsive ─── */
-@media (max-width: 600px) {
-  .card { padding: 1.5rem; }
-  td pre { max-width: 200px; }
-}
-.auth-card {
-    max-width: 420px;
-    margin: auto;
-    text-align: center;
-}
-
-.auth-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 10px;
-}
-
-.auth-tabs .tab {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background: var(--rose-surface);
-    cursor: pointer;
-    border-radius: 10px;
-    font-weight: 500;
-    color: var(--plum-text);
-}
-
-.auth-tabs .tab.active {
-    background: var(--gradient-btn);
-    color: white;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 10px;
-    border: 1px solid var(--rose-border);
-    outline: none;
-    font-family: var(--font-sans);
-}
-.auth-landing {
-    text-align: center;
-}
-
+/* AUTH LAYOUT */
 .auth-options {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
+/* BOX */
 .auth-box {
-    background: var(--rose-surface);
-    border: 1px solid var(--rose-border);
-    border-radius: 16px;
-    padding: 25px;
-    width: 240px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
+  width: 260px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid var(--rose-border);
+  border-radius: 18px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
 }
 
 .auth-box:hover {
-    transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
 }
 
-.auth-box h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
+/* REMOVE TEXT (as you wanted clean UI) */
+.auth-box h2,
+.auth-box h3,
 .auth-box p {
-    font-size: 13px;
-    margin-bottom: 15px;
-    color: var(--muted-text);
+  display: none;
 }
 
-.auth-box button {
-    width: 100%;
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background: var(--gradient-btn);
+  box-shadow: 0 6px 15px rgba(163,80,106,0.25);
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(163,80,106,0.35);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
