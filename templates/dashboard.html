@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
 <div class="container">
+
+    <div class="navbar">
+        <div class="brand">Cloud Log Analyzer</div>
+
+        <div class="nav-links">
+            <a href="/upload">Upload</a>
+            <a href="/history">History</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
     <h1>Analytics Dashboard</h1>
 
     <div class="card">
+
+        <div class="metrics-grid">
+
+            {% for key, value in data.items() %}
+
+            <div class="metric-card">
+                <div class="metric-label">
+                    {{ key }}
+                </div>
+
+                <div class="metric-value">
+                    {{ value }}
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
         <table>
+
             <tr>
                 <th>Metric</th>
                 <th>Count</th>
@@ -22,11 +57,11 @@
                 <td>{{ value }}</td>
             </tr>
             {% endfor %}
+
         </table>
 
-        <br>
-        <a href="/upload">Upload Another</a>
     </div>
+
 </div>
 
 </body>

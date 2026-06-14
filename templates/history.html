@@ -1,40 +1,64 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Analysis History</title>
-		<style>
-			table { border-collapse: collapse; width: 100%; }
-			th, td { border: 1px solid #ddd; padding: 8px; }
-			th { background: #f4f4f4; }
-		</style>
-	</head>
-	<body>
-		<h1>Analysis History</h1>
-		<p><a href="/upload">Upload more files</a> | <a href="/logout">Logout</a></p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-		{% if rows and rows|length > 0 %}
-			<table>
-				<thead>
-					<tr>
-						<th>Filename</th>
-						<th>Analyzed At</th>
-						<th>Result</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for r in rows %}
-						<tr>
-							<td>{{ r[0] }}</td>
-							<td>{{ r[1] }}</td>
-							<td><pre style="white-space:pre-wrap">{{ r[2] }}</pre></td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		{% else %}
-			<p>No history found.</p>
-		{% endif %}
-	</body>
+<div class="container">
+
+    <div class="navbar">
+        <div class="brand">Cloud Log Analyzer</div>
+
+        <div class="nav-links">
+            <a href="/upload">Upload</a>
+            <a href="/history">History</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <h1>Analysis History</h1>
+
+    <div class="card">
+
+        {% if rows %}
+
+        <table>
+
+            <tr>
+                <th>Filename</th>
+                <th>Analyzed At</th>
+                <th>Results</th>
+            </tr>
+
+            {% for row in rows %}
+
+            <tr>
+
+                <td>{{ row.filename }}</td>
+
+                <td>{{ row.analyzed_at }}</td>
+
+                <td>
+                    <pre>{{ row.result }}</pre>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+        <p>No analysis history available.</p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
 </html>
