@@ -94,6 +94,7 @@ def upload_file():
         return "No file selected"
 
     path = os.path.join("uploads", file.filename)
+    os.makedirs("uploads", exist_ok=True)
     file.save(path)
 
     with open(path, "r", errors="ignore") as f:
